@@ -1,0 +1,193 @@
+<h1>Tutorial académico sobre el framework Angular</h1>
+
+<h2>1. Justificación del framework</h2>
+
+<h3>1.a) ¿Para qué sirve Angular?</h3>
+<p>
+  Angular es un framework de desarrollo web de código abierto, mantenido por Google, cuyo propósito es
+  facilitar la creación de aplicaciones interactivas, modulares y escalables. Se orienta al desarrollo de
+  <strong>Single Page Applications (SPA)</strong>, es decir, aplicaciones en las que el contenido se actualiza de
+  manera dinámica sin necesidad de recargar la página completa. Este enfoque proporciona una experiencia de
+  usuario más fluida y optimiza el rendimiento global de la aplicación.
+</p>
+
+<p>
+  Desde un punto de vista académico, Angular constituye una herramienta adecuada para comprender los
+  principios de la ingeniería del software aplicada al desarrollo web. Permite trabajar con conceptos como la
+  modularidad, la separación de responsabilidades, la reutilización del código y el diseño orientado a
+  componentes, todos ellos fundamentales en la formación universitaria en informática.
+</p>
+
+<h3>1.b) ¿Qué aplicaciones tiene?</h3>
+<p>
+  Angular se emplea en una gran variedad de contextos. Es habitual encontrarlo en plataformas de gestión
+  académica, paneles administrativos, sistemas de reservas, aplicaciones financieras, herramientas de
+  comunicación interna y plataformas de aprendizaje virtual. Gracias a su integración con otras tecnologías,
+  como Ionic, también puede utilizarse como base para el desarrollo de aplicaciones móviles híbridas.
+</p>
+
+<p>
+  El hecho de contar con el respaldo continuo de Google, una comunidad muy activa y una documentación
+  extensa convierte a Angular en una tecnología estable. Por ello, es una opción recomendable tanto para el
+  aprendizaje universitario como para el desarrollo profesional.
+</p>
+
+<h3>1.c) ¿Sobre qué lenguajes y tecnologías se apoya?</h3>
+<p>
+  Angular combina distintas tecnologías que se complementan entre sí:
+</p>
+<ul>
+  <li>
+    <strong>TypeScript:</strong> lenguaje principal del framework. Extiende JavaScript con tipado estático y
+    clases, lo que facilita la detección temprana de errores y la organización del código.
+  </li>
+  <li>
+    <strong>HTML:</strong> se utiliza para definir la estructura semántica de las vistas de cada componente.
+  </li>
+  <li>
+    <strong>CSS:</strong> permite aplicar estilos y adaptar el diseño visual a las necesidades de la
+    aplicación.
+  </li>
+  <li>
+    <strong>Node.js:</strong> entorno de ejecución que posibilita el uso de Angular CLI y la gestión de
+    dependencias mediante npm.
+  </li>
+  <li>
+    <strong>Angular CLI:</strong> herramienta de línea de comandos que automatiza tareas como la creación,
+    compilación y despliegue de proyectos.
+  </li>
+</ul>
+
+<h3>1.d) Prerrequisitos de conocimiento</h3>
+<p>
+  Para aprovechar el estudio de Angular es recomendable disponer de conocimientos previos de
+  <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong>, así como comprender la estructura básica de
+  archivos de un proyecto y el uso de la terminal de comandos. Estos conocimientos permiten centrarse en el
+  funcionamiento del framework sin que el entorno suponga una dificultad añadida.
+</p>
+
+<hr>
+
+<h2>2. Instalación del entorno</h2>
+
+<h3>2.a) Herramientas necesarias</h3>
+<p>
+  Para poder trabajar con Angular es necesario preparar un entorno mínimo formado por:
+</p>
+<ul>
+  <li><strong>Node.js</strong> (versión 18 o superior), junto con su gestor de paquetes <strong>npm</strong>.</li>
+  <li><strong>Angular CLI</strong>, que se utiliza para crear y administrar proyectos.</li>
+  <li>
+    Un editor de código, preferiblemente <strong>Visual Studio Code</strong>, por su buena integración con
+    TypeScript.
+  </li>
+</ul>
+
+<h3>2.b) Instalación paso a paso</h3>
+<ol>
+  <li>
+    Descargar e instalar <strong>Node.js</strong> desde la página oficial:
+    <a href="https://nodejs.org" target="_blank">https://nodejs.org</a>.
+  </li>
+  <li>
+    Verificar la instalación ejecutando en la terminal:
+    <pre><code>node -v
+npm -v</code></pre>
+  </li>
+  <li>
+    Instalar Angular CLI de forma global:
+    <pre><code>npm install -g @angular/cli</code></pre>
+  </li>
+  <li>
+    Comprobar la versión de Angular CLI instalada:
+    <pre><code>ng version</code></pre>
+  </li>
+</ol>
+
+<h3>2.c) Creación del proyecto</h3>
+<p>
+  Una vez instalada la herramienta, se puede crear un nuevo proyecto mediante:
+</p>
+<pre><code>ng new tutorial-angular</code></pre>
+<p>
+  Durante la configuración inicial, para este trabajo seleccioné la opción <strong>No</strong> para el sistema de
+  enrutamiento y <strong>CSS</strong> como formato de hoja de estilos.
+</p>
+<p>
+  A continuación, accedí a la carpeta del proyecto escribiendo:
+</p>
+<pre><code>cd tutorial-angular</code></pre>
+
+<h3>2.d) Ejecución del servidor local</h3>
+<p>
+  Para ejecutar la aplicación en un entorno de desarrollo, se utiliza el siguiente comando:
+</p>
+<pre><code>ng serve --port 58546</code></pre>
+<p>
+  Tras la compilación, el servidor se inicia en el puerto indicado. Para visualizar la aplicación basta con
+  abrir un navegador y acceder a la dirección:
+  <a href="http://localhost:58546" target="_blank">http://localhost:58546</a>.
+</p>
+
+<hr>
+
+<h2>3. Primeros pasos con Angular</h2>
+<p>
+  El primer contacto con el framework suele realizarse a través del componente principal de la aplicación.
+  Cada componente de Angular combina, al menos, un archivo de código TypeScript (lógica), un archivo HTML
+  (estructura) y un archivo CSS (estilos). Esta división facilita el mantenimiento y la comprensión del
+  código.
+</p>
+
+<pre><code>// app.component.ts
+import &#123; Component &#125; from '@angular/core';
+
+&#64;Component(&#123;
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+&#125;)
+export class AppComponent &#123;
+  titulo = 'Bienvenido a mi primer proyecto con Angular';
+&#125;
+</code></pre>
+
+<p>
+  En la plantilla asociada se puede mostrar el título utilizando interpolación:
+</p>
+<pre><code>&lt;h1&gt;&#123;&#123; titulo &#125;&#125;&lt;/h1&gt;</code></pre>
+<p>
+  De esta forma se observa cómo Angular vincula los datos definidos en la lógica del componente con la
+  interfaz que ve el usuario.
+</p>
+
+<hr>
+
+<h2>4. Funcionamiento y estructura del framework</h2>
+<p>
+  Angular organiza las aplicaciones en <strong>componentes</strong> y <strong>módulos</strong>. Cada componente se
+  encarga de una parte concreta de la interfaz y se puede reutilizar en distintas secciones del proyecto.
+  Además, el framework ofrece mecanismos como el <strong>data binding</strong> para sincronizar los datos entre la
+  vista y la lógica, y servicios que permiten compartir información entre componentes.
+</p>
+
+<p>
+  Esta estructura modular facilita el trabajo en equipo y el mantenimiento de aplicaciones de cierta
+  complejidad, ya que cada parte del sistema queda claramente delimitada.
+</p>
+
+<hr>
+
+<h2>5. Conclusiones</h2>
+<p>
+  El estudio de Angular permite al estudiante relacionar los fundamentos teóricos de la ingeniería del
+  software con la práctica del desarrollo web. A través de este framework se trabajan conceptos como la
+  reutilización de componentes, la separación de capas y la gestión de dependencias.
+</p>
+
+<p>
+  Además de su utilidad profesional, Angular resulta especialmente interesante en el contexto universitario
+  porque introduce al alumnado en metodologías y herramientas utilizadas habitualmente en la industria
+  tecnológica. Dominar este framework supone un avance significativo en la formación como desarrollador web y
+  facilita la participación en proyectos reales de cierta envergadura.
+</p>
